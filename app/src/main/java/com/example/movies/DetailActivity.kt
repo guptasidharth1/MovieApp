@@ -20,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
         val data = intent.extras?.getString("poster_path")
         val over =intent.extras?.getString("desc")
-        val poster: ImageView=findViewById(R.id.poster_path)
+        val poster: ImageView=findViewById(R.id.poster_path_movie)
         val description: TextView = findViewById(R.id.desc)
         Glide.with(this)
             .load(data)
