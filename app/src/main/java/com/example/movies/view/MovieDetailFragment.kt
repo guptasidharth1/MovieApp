@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
+import com.example.movies.MovieFragment
 import com.example.movies.R
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail.view.*
@@ -38,6 +40,14 @@ class MovieDetailFragment: Fragment() {
         Glide.with(this)
             .load(image)
             .into(poster_path_movie)
+
+
+        back_button.setOnClickListener{
+            val fr = MovieFragment(MainActivity())
+
+            parentFragmentManager.popBackStack()
+        }
+
     }
 
 }

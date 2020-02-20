@@ -68,7 +68,7 @@ class MoviesAdapter(val fragmentManager: FragmentManager,
                 val fr = MovieDetailFragment()
                 fr.arguments=args
                 fragmentManager.beginTransaction()
-                    .replace(R.id.fraglayy,fr).commit()
+                    .add(R.id.fraglayy,fr).addToBackStack("MovieDetailFragment").commit()
 
             }
         }

@@ -1,6 +1,7 @@
 package com.example.movies
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fraglay.*
 
 
-class MovieFragment: Fragment() {
+class MovieFragment(context: Context): Fragment() {
 
 
 
@@ -69,7 +70,7 @@ class MovieFragment: Fragment() {
     }
 
     private fun onError() {
-        Toast.makeText(MainActivity(),"Please check your internet connection and try again later", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context,"Please check your internet connection and try again later", Toast.LENGTH_SHORT).show()
     }
 
 
