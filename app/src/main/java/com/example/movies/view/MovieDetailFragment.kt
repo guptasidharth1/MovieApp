@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_detail.view.*
 
 class MovieDetailFragment: Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,25 +27,17 @@ class MovieDetailFragment: Fragment() {
         return view
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val image = arguments?.getString("movie_poster")
         val movie_descriotion = arguments?.getString("desc")
-
 
         view.desc.setText(movie_descriotion)
         Glide.with(this)
             .load(image)
             .into(poster_path_movie)
-
-
         back_button.setOnClickListener{
-
             parentFragmentManager.popBackStack()
         }
-
     }
-
 }

@@ -35,9 +35,7 @@ class MoviesAdapter(val fragmentManager: FragmentManager,
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(movies[position])
-
     }
-
 
     fun updateMovies(movies: List<movies>) {
         this.movies.addAll(movies)
@@ -51,17 +49,13 @@ class MoviesAdapter(val fragmentManager: FragmentManager,
         private val movie_releasedate = itemView.release_date
         val but = itemView.findViewById<Button>(R.id.button)
         fun bind(movie: movies) {
-
-
             Glide.with(itemView)
                 .load("https://image.tmdb.org/t/p/w342${movie.backdrop_path}")
                 .transform(CenterCrop())
                 .into(movie_poster)
-
             movie_budget.setText(movie.original_title)
             movie_releasedate.setText(movie.release_date)
             but.setOnClickListener {
-
                 val args = Bundle()
                 args.putString("movie_poster", "https://image.tmdb.org/t/p/w342${movie.backdrop_path}")
                 args.putString("desc", movie.overview)
@@ -69,9 +63,7 @@ class MoviesAdapter(val fragmentManager: FragmentManager,
                 fr.arguments=args
                 fragmentManager.beginTransaction()
                     .add(R.id.fraglayy,fr).addToBackStack("MovieDetailFragment").commit()
-
             }
         }
-
     }
 }

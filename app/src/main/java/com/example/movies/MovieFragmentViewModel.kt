@@ -9,16 +9,9 @@ import kotlinx.coroutines.*
 import java.lang.Exception
 
 class MovieFragmentViewModel(val movieRepo: MovieRepository) : ViewModel() {
-    private val viewModelJob = Job()
-
-
-    private val coScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
     var movieData = MutableLiveData<List<movies>>()
 
-
     init {
-
         viewModelScope.launch {
             try {
                 val response = movieRepo.getAllMovies()
@@ -29,6 +22,4 @@ class MovieFragmentViewModel(val movieRepo: MovieRepository) : ViewModel() {
             }
         }
     }
-
-
 }

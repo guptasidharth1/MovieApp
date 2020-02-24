@@ -23,7 +23,6 @@ class MovieFragment(context: Context) : Fragment() {
 
     private lateinit var popularMoviesAdapter: MoviesAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,14 +33,9 @@ class MovieFragment(context: Context) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // mov()
-
         initmodels()
         initadaptors()
-
-
     }
-
 
     private lateinit var view: MovieFragmentViewModel
     private fun initmodels() {
@@ -51,67 +45,14 @@ class MovieFragment(context: Context) : Fragment() {
     }
 
     private fun initadaptors() {
-
-        popular_movies.layoutManager = LinearLayoutManager(
-            activity,
-            LinearLayoutManager.VERTICAL,
-            false
-
-        )
+        popular_movies.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
         val list = mutableListOf<movies>()
         popularMoviesAdapter =  MoviesAdapter(fragmentManager!!, list, activity!!)
         popular_movies.adapter = popularMoviesAdapter
     }
 
     private fun observe() {
-        view.movieData.observe(viewLifecycleOwner,
-            Observer<List<movies>> { movies ->
-
-                popularMoviesAdapter.updateMovies(movies)
-
-            })
+        view.movieData.observe(viewLifecycleOwner, Observer<List<movies>> { movies ->
+            popularMoviesAdapter.updateMovies(movies)})
     }
-//fdata
-//     private fun  mov(){
-//
-//
-//
-//        val popularMovies: RecyclerView = popular_movies
-//
-//        popularMovies.layoutManager = LinearLayoutManager(
-//                MainActivity(),
-//                LinearLayoutManager.VERTICAL,
-//                false
-//
-//        )
-//         fragmentManager?.let {
-//             popularMoviesAdapter = MoviesAdapter(it,listOf(), MainActivity())
-//             popularMovies.adapter = popularMoviesAdapter
-//
-//         }
-//
-//
-//        MoviesRepository.getPopularMovies(
-//                onSuccess = ::onPopularMoviesFetched,
-//                onError = ::onError
-//        )
-//
-//    }
-
-//    private fun onPopularMoviesFetched(movie: List<movies>) {
-//
-//        popularMoviesAdapter.updateMovies(view.fdata)
-//
-//    }
-
-//    private fun onError() {
-//        Toast.makeText(context,"Please check your internet connection and try again later", Toast.LENGTH_SHORT).show()
-//    }
-//
-//    override fun onDestroy() {
-//        super.onDestroy()
-//    }
-//
-
-
 }

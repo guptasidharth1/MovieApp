@@ -23,8 +23,6 @@
         android:layout_marginEnd="16dp"
         android:text="@string/most_popular_movies" />
 
-
-
     <FrameLayout android:id="@+id/fraglayy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
