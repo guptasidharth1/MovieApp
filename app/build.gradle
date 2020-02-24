@@ -10,6 +10,11 @@ android {
     /*buildFeatures{
         dataBinding = true
     }*/
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.example.movies"
         minSdkVersion 16
@@ -42,7 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.squareup.retrofit2:retrofit:2.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
 
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 

@@ -16,7 +16,7 @@ private lateinit var okHttpClient: OkHttpClient
 private val retrofit = Retrofit.Builder()
     .baseUrl("https://api.themoviedb.org/3/")
     .addConverterFactory(GsonConverterFactory.create())
-//    .client(okHttpClient)
+//   .client(okHttpClient)
     .build()
 
 
@@ -27,10 +27,10 @@ interface ApiInterface {
 
 
     @GET("movie/popular")
-    fun getPopularMovies(
+    suspend fun getPopularMovies(
         @Query("api_key") apiKey: String = "cdd99989813fed4e37718a796236c5f6",
         @Query("page") page: Int
-    ): Call<MovieResponse>
+    ): MovieResponse
 
 
 //

@@ -1,44 +1,34 @@
 package com.example.movies
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import retrofit2.Callback
-
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.movies.model.MovieResponse
+import androidx.lifecycle.viewModelScope
 import com.example.movies.model.movies
-import com.example.movies.view.MovieApi
-import com.example.movies.view.MoviesAdapter
-import retrofit2.Call
-import retrofit2.Response
+import kotlinx.coroutines.*
+import java.lang.Exception
 
-class MovieFragmentViewModel() :ViewModel(){
+class MovieFragmentViewModel(val movieRepo: MovieRepository) : ViewModel() {
+    private val viewModelJob = Job()
 
-    var movieData= MutableLiveData<List<movies>>()
 
-    var test : String =""
+    private val coScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    init{
-        MovieApi.retrofitservice.getPopularMovies("cdd99989813fed4e37718a796236c5f6",2).enqueue(object : Callback<MovieResponse> {
-            override fun onFailure(call: Call<MovieResponse>?, t: Throwable?) {
-                Log.i("Failure", "fsdfjjsdofjisdjf")
+    var movieData = MutableLiveData<List<movies>>()
+
+
+    init {
+
+        viewModelScope.launch {
+            try {
+                val response = movieRepo.getAllMovies()
+                movieData.value = response
+                Log.i("Success", response.toString())
+            } catch (ex: Exception) {
+                Log.i("Failure", ex.localizedMessage)
             }
-
-            override fun onResponse(call: Call<MovieResponse>?, response: Response<MovieResponse>?) {
-
-
-                val responseBody = response?.body()
-                var moviesDataval = responseBody?.movies
-                //movieData= MutableLiveData<List<movies>>()
-                movieData.value = moviesDataval
-                Log.i("success", movieData.value.toString())
-
-
-            }
-
-        })
-
+        }
     }
+
 
 }

@@ -45,7 +45,7 @@ class MovieFragment(context: Context) : Fragment() {
 
     private lateinit var view: MovieFragmentViewModel
     private fun initmodels() {
-        view = ViewModelProviders.of(this)
+        view = ViewModelProviders.of(this, MovieFragmentViewModelFactory())
             .get(MovieFragmentViewModel::class.java)
         observe()
     }
