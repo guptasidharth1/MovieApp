@@ -43,7 +43,6 @@ class MovieDetailFragment: Fragment() {
 
 
         back_button.setOnClickListener{
-            val fr = MovieFragment(MainActivity())
 
             parentFragmentManager.popBackStack()
         }

@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.item_movie.view.*
 
 
 class MoviesAdapter(val fragmentManager: FragmentManager,
-    private var movies: List<movies>,
+    private var movies: MutableList<movies>,
     private var context: Context
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
@@ -40,7 +40,7 @@ class MoviesAdapter(val fragmentManager: FragmentManager,
 
 
     fun updateMovies(movies: List<movies>) {
-        this.movies = movies
+        this.movies.addAll(movies)
         notifyDataSetChanged()
     }
 
