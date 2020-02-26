@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_above="@+id/activity_detail_fragment"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:layout_above="@+id/activity_detail_fragment"
+    android:background="@color/colorAccentDark"
     android:id="@+id/detail_fragment"
 
     tools:context=".DetailActivity">
+
 
     <ImageView
         android:id="@+id/poster_path_movie"
@@ -36,13 +37,27 @@
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="158dp"
+        android:layout_height="47dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/poster_path_movie"
+        app:layout_constraintTop_toTopOf="@+id/desc"
         app:layout_constraintVertical_bias="0.935" />
+
+
+    <Button
+        android:id="@+id/chat_button"
+        android:layout_width="158dp"
+        android:layout_height="47dp"
+        android:text="Chat with us"
+        app:layout_constraintBottom_toBottomOf="@+id/back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/back_button"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
