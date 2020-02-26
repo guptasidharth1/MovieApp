@@ -31,6 +31,9 @@ class MovieChatFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initmodels()
         initadaptors()
+        send_button.setOnClickListener{
+            parentFragmentManager.popBackStack()
+        }
     }
 
     private lateinit var view: MovieChatFragmentViewModel
